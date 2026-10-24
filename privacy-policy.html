@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>뚝딱동화 개인정보처리방침</title>
+  <title>뚝딱동화 개인정보처리방침 — 검토용 개정안</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -17,12 +17,12 @@
     }
     h1 {
       font-size: 24px;
-      color: #FF9500;
+      color: #A65300;
       margin-bottom: 8px;
     }
     .date {
       font-size: 14px;
-      color: #888;
+      color: #666;
       margin-bottom: 32px;
     }
     h2 {
@@ -61,14 +61,29 @@
       padding-top: 24px;
       border-top: 1px solid #eee;
       font-size: 13px;
-      color: #888;
+      color: #666;
     }
-  </style>
+
+    a { color: #754015; overflow-wrap: anywhere; }
+    a:focus-visible, .table-wrap:focus-visible { outline: 3px solid #754015; outline-offset: 3px; }
+    nav { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .review { background: #FFF3E0; border: 2px solid #AA651D; padding: 16px; margin: 16px 0; }
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    .table-wrap table { margin: 0; min-width: 520px; }
+    td, th { overflow-wrap: anywhere; }
+    .skip { position: absolute; top: -100px; }
+    .skip:focus { position: static; }
+    @media (max-width: 480px) { body { padding: 20px 16px; } }
+</style>
 </head>
 <body>
+<a class="skip" href="#main">본문으로 이동</a>
+<nav aria-label="문서와 언어"><a href="en/privacy-policy.html" lang="en" hreflang="en">English</a><a href="support.html">지원 안내</a><a href="account-deletion.html">계정 삭제 안내</a></nav>
+<main id="main">
 
 <h1>개인정보처리방침</h1>
-<p class="date">시행일: 2026년 5월 20일</p>
+<p class="date">현행 시행일: 2026년 5월 20일 · 개정안 검토일: 2026년 10월 25일</p>
+<aside class="review" aria-label="개정안 검토 상태"><strong>검토용 개정안 — 아직 공개·시행되지 않았습니다.</strong> 시행일, 진단 정보의 실제 보관 기간 및 국외 이전 고지를 확정한 뒤 게시합니다. 기존 2026년 10월 26일 암호화 백업 공지의 날짜와 내용은 유지합니다. 이번 문서 작업은 Android 앱·서버의 수집 코드를 변경하지 않습니다. iOS Apple 로그인 처리 항목을 설명에 추가하며 결제 조건은 다루지 않습니다.</aside>
 <p>서비스 웹사이트: <a href="https://tales.ddukddak.net">tales.ddukddak.net</a></p>
 <p>문의 연락처·서비스 주소 안내 갱신일: 2026년 10월 10일.</p>
 <p><strong>개정 안내 (2026년 10월 19일 공지)</strong>: 2026년 10월 26일부터 제3조(암호화 백업본 보관 기간)와 제5조(데이터 백업 보관 위탁) 내용이 추가로 시행됩니다.</p>
@@ -79,15 +94,15 @@
 
 <p>서비스는 회원가입 및 서비스 제공을 위해 다음의 개인정보를 수집합니다.</p>
 
-<table>
+<div class="table-wrap" tabindex="0" role="region" aria-label="개인정보 항목 표"><table>
   <tr>
-    <th>구분</th>
-    <th>수집 항목</th>
-    <th>수집 방법</th>
+    <th scope="col">구분</th>
+    <th scope="col">수집 항목</th>
+    <th scope="col">수집 방법</th>
   </tr>
   <tr>
     <td>이메일 회원가입</td>
-    <td>이메일 주소, 비밀번호(암호화), 닉네임</td>
+    <td>이메일 주소, 비밀번호(단방향 해시), 닉네임</td>
     <td>회원가입 시 직접 입력</td>
   </tr>
   <tr>
@@ -101,41 +116,58 @@
     <td>구글 인증 시 자동 수집</td>
   </tr>
   <tr>
+    <td>Apple로 로그인(iOS 제공 버전)</td>
+    <td>Apple 계정 식별자, Apple에서 제공한 이메일 또는 비공개 릴레이 이메일, 최초 인증 시 제공되는 이름, 권한 철회용 암호화 토큰</td>
+    <td>이용자가 Apple 로그인을 선택할 때 제공·생성. Apple 계정 비밀번호는 서비스가 받지 않음</td>
+  </tr>
+  <tr>
     <td>서비스 이용</td>
-    <td>동화 읽기 진행률, 최근 읽은 동화 기록</td>
+    <td>서비스 내부 계정 식별자, 계정에 연결된 동화 읽기 진행률·최근 읽은 동화 기록</td>
     <td>서비스 이용 중 자동 생성</td>
   </tr>
   <tr>
     <td>푸시 알림</td>
-    <td>Expo Push Token (Android FCM 기반 기기 식별자), 푸시 알림 수신 동의 여부</td>
-    <td>앱 최초 실행 시 권한 허용 후 자동 발급·등록</td>
+    <td>Expo Push Token, 운영체제(android/ios), 앱 알림 언어, 푸시 알림 수신 설정. Android는 FCM, iOS는 APNs 기반으로 Expo Push Service를 이용</td>
+    <td>푸시를 지원하는 버전에서 알림 권한 허용 및 계정의 알림 등록 시 발급·갱신</td>
   </tr>
-</table>
+  <tr>
+    <td>선택적 고객 문의·피드백</td>
+    <td>계정 식별자에 연결된 문의 내용, 분류·평점, 선택 입력한 연락 이메일, 관련 동화·페이지·언어, 앱 버전·운영체제·기기 모델</td>
+    <td>이용자가 문의·피드백을 전송할 때 입력·첨부. 비밀번호·인증번호·주민등록번호는 요청하지 않음</td>
+  </tr>
+  <tr>
+    <td>오류·장애 진단</td>
+    <td>오류·충돌 로그, 앱 버전, 운영체제·기기 종류, 오류가 발생한 화면·동작 문맥 등 진단 정보</td>
+    <td>진단 기능이 활성화된 버전에서 오류 발생 시 Sentry SDK로 전송</td>
+  </tr>
+</table></div>
+<p>플랫폼·버전·로그인 방법에 따라 처리하는 항목이 다릅니다. Apple 로그인 항목은 해당 iOS 기능을 선택한 경우에만 적용하며 Android에 Apple 로그인을 추가한다는 뜻이 아닙니다. 네트워크 요청 과정에서 접속 IP·시각 등 요청 정보가 인증·서버·콘텐츠 전송 사업자에게 전달될 수 있습니다.</p>
 
 <h2>제2조 (개인정보의 수집·이용 목적)</h2>
 
 <ol>
   <li><strong>회원 관리</strong>: 회원 식별, 본인 확인, 가입 및 탈퇴 처리</li>
-  <li><strong>서비스 제공</strong>: 동화 콘텐츠 제공, 읽기 진행률 저장 및 복원</li>
-  <li><strong>서비스 개선</strong>: 서비스 이용 통계 분석 (비식별 처리)</li>
+  <li><strong>서비스 제공</strong>: 동화 콘텐츠 제공, 읽기 진행률 저장 및 복원. Apple 권한 철회용 토큰은 계정 연결과 탈퇴 시 권한 철회 처리에 사용</li>
+  <li><strong>서비스 개선</strong>: 서비스 이용 통계 분석 (비식별 처리), 오류·충돌 원인 파악과 안정성 개선. 진단 정보 전체가 익명이라는 의미는 아님</li>
+  <li><strong>문의 대응</strong>: 이용자가 보낸 문의 확인·답변 및 문제 해결</li>
   <li><strong>서비스 알림 발송</strong>: 새 동화 등록 등 서비스 운영과 관련된 알림 발송 (광고·마케팅 목적 알림은 발송하지 않으며, 앱 설정 &gt; 알림에서 언제든지 수신을 거부할 수 있습니다)</li>
 </ol>
 
 <h2>제3조 (개인정보의 보유 및 이용 기간)</h2>
 
-<p>이용자의 개인정보는 원칙적으로 <strong>회원 탈퇴 시 즉시 파기</strong>합니다.</p>
+<p>계정 삭제가 완료되면 계정 개인정보를 <strong>지체 없이 파기</strong>합니다. 법정 보존 예외와 아래 백업 기준이 적용됩니다. 계정 삭제와 별도로 처리되는 진단·문의 기록은 아래 공개 전 확정 항목입니다.</p>
 
 <ul>
-  <li>회원 탈퇴 요청 시: 즉시 파기</li>
+  <li>앱 내 탈퇴는 삭제 완료 여부를 확인합니다. Apple 처리 재시도가 필요할 수 있습니다. 이메일 삭제 요청에는 별도의 본인 확인·처리 시간이 적용됩니다.</li>
   <li>단, 관계 법령에 따라 보존이 필요한 경우 해당 기간 동안 보관합니다.</li>
   <li>서비스 안정성을 위한 암호화 백업본은 생성 후 7일 이내에 자동 삭제됩니다. (2026년 10월 26일 시행)</li>
 </ul>
 
-<table>
+<div class="table-wrap" tabindex="0" role="region" aria-label="개인정보 항목 표"><table>
   <tr>
-    <th>보존 항목</th>
-    <th>근거 법령</th>
-    <th>보존 기간</th>
+    <th scope="col">보존 항목</th>
+    <th scope="col">근거 법령</th>
+    <th scope="col">보존 기간</th>
   </tr>
   <tr>
     <td>계약 또는 청약철회 등에 관한 기록</td>
@@ -147,7 +179,9 @@
     <td>통신비밀보호법</td>
     <td>3개월</td>
   </tr>
-</table>
+</table></div>
+<p>Apple 권한 철회용 토큰은 암호화해 계정과 연결하여 저장하며, 탈퇴 처리 시 권한 철회를 시도한 뒤 계정 삭제와 함께 삭제합니다. 직접 철회가 필요한 경우 앱에서 안내할 수 있으며, 일시적인 Apple 오류로 탈퇴가 완료되지 않았다면 재시도 안내를 제공합니다. 이미 공지된 백업본 보관 기준은 그대로 적용됩니다.</p>
+<p class="review"><strong>공개 전 확정할 사항:</strong> Sentry 진단 정보와 이메일 문의 기록의 실제 보관 기간·삭제 경로는 계정 DB 삭제와 별도로 확인해야 합니다. 이를 임의로 ‘즉시 삭제’나 특정 일수로 약속하지 않습니다. 위 기존 법정 보존 표의 실제 적용 범위도 기존 약관 담당의 검토와 합쳐 확정합니다.</p>
 
 <h2>제4조 (개인정보의 제3자 제공)</h2>
 
@@ -162,10 +196,10 @@
 
 <p>서비스는 원활한 서비스 제공을 위해 다음과 같이 개인정보 처리를 위탁합니다.</p>
 
-<table>
+<div class="table-wrap" tabindex="0" role="region" aria-label="개인정보 항목 표"><table>
   <tr>
-    <th>수탁업체</th>
-    <th>위탁 업무</th>
+    <th scope="col">수탁업체</th>
+    <th scope="col">위탁 업무</th>
   </tr>
   <tr>
     <td>Supabase Inc.</td>
@@ -183,7 +217,13 @@
     <td>GitHub, Inc.</td>
     <td>데이터 백업 보관(암호화) (2026년 10월 26일 시행)</td>
   </tr>
-</table>
+  <tr><td>Functional Software, Inc. (Sentry)</td><td>오류·충돌 진단 및 서비스 안정성 점검</td></tr>
+  <tr><td>Resend, Inc.</td><td>가입 확인·비밀번호 재설정 등 인증 이메일 발송</td></tr>
+  <tr><td>Cloudflare, Inc.</td><td>동화 이미지·음성·영상 등 콘텐츠 저장·전송</td></tr>
+</table></div>
+<p>Apple(iOS APNs)과 Google(Android FCM)은 해당 플랫폼의 푸시 전달 과정에 관여합니다. Apple·Google·카카오 등 선택한 로그인 제공자의 자체 서비스에는 각 제공자의 정책도 적용됩니다. 위탁 처리와 각 사업자의 독립적인 처리를 동일하게 단정하지 않습니다.</p>
+<h2>제5조의2 (국외 처리 관련 고지 — 공개 전 검토)</h2>
+<p class="review">Supabase 데이터베이스의 현재 리전은 대한민국 서울(ap-northeast-2), API 서버는 서울(asia-northeast3), Sentry 조직은 미국 리전으로 확인했습니다. 이 사실만으로 각 업체의 모든 처리가 해당 국가 안에서만 이뤄진다고 단정하지 않습니다. 인증 이메일·푸시·콘텐츠 전송·백업의 실제 이전 국가, 이전받는 자의 연락처, 항목·시기·방법·목적·보유 기간, 이전 근거와 거부 방법/효과를 확정해야 합니다. 이 문단은 최종 법정 고지를 대신하지 않으며, 해당 사항을 완성하기 전 이 개정안을 게시하지 않습니다.</p>
 
 <h2>제6조 (이용자의 권리·의무 및 행사 방법)</h2>
 
@@ -196,7 +236,7 @@
   <li><strong>처리 정지 요구</strong></li>
 </ol>
 
-<p>위 권리 행사는 앱 내 설정 화면에서 직접 처리하거나, 아래 연락처로 요청하실 수 있습니다.</p>
+<p>위 권리 행사는 지원되는 버전의 앱 내 설정 화면에서 직접 처리하거나, 아래 연락처로 요청하실 수 있습니다.</p>
 
 <ul>
   <li><strong>회원 탈퇴</strong>: 앱 설정 → 프로필 → 회원탈퇴</li>
@@ -205,7 +245,8 @@
 
 <h2>제7조 (아동의 개인정보 보호)</h2>
 
-<p>서비스는 <strong>만 14세 미만 아동</strong>의 개인정보를 직접 수집하지 않습니다. 서비스의 회원가입은 <strong>부모 또는 법정대리인</strong>이 진행하며, 아동이 직접 회원가입을 할 수 없습니다.</p>
+<p>서비스는 회원가입을 통해 <strong>만 14세 미만 아동</strong>의 계정 정보를 직접 수집하지 않습니다. 아동이 사용할 보호자 계정은 부모 또는 법정대리인이 관리합니다. 아이 모드를 지원하는 버전에서는 계정 없이 지정된 동화를 읽을 수 있으며, 계정 기능으로 이동하기 전에 보호자 확인을 거칩니다. 해당 기능을 아직 제공하지 않는 구버전에 같은 제어가 적용된다고 보장하지 않습니다.</p>
+<p>아이 모드 지원 버전의 생년월일 입력은 기기에서 연령 구분에 사용하고 원문을 저장·서버 전송하지 않으며, 연령 구분과 전환 상태만 기기에 저장합니다. 이는 정부 신분증이나 법정대리인 신원을 인증하는 절차가 아닙니다. 아이 모드의 네트워크 요청에도 콘텐츠 제공에 필요한 접속 정보 처리는 발생할 수 있습니다.</p>
 
 <p>만 14세 미만 아동의 개인정보가 수집된 사실을 알게 된 경우, 해당 정보를 즉시 삭제하며 법정대리인에게 통지합니다.</p>
 
@@ -217,15 +258,15 @@
   <li><strong>비밀번호 암호화</strong>: 비밀번호는 단방향 암호화하여 저장</li>
   <li><strong>전송 구간 암호화</strong>: HTTPS(TLS) 적용</li>
   <li><strong>접근 제한</strong>: 개인정보 처리 시스템에 대한 접근 권한 최소화</li>
-  <li><strong>인증 토큰</strong>: JWT 기반 인증으로 세션 보안 유지</li>
+  <li><strong>인증 토큰</strong>: JWT 기반 인증으로 세션 보안 유지. Apple 권한 철회용 토큰은 서버에서 암호화하고 접근을 제한</li>
 </ol>
 
 <h2>제9조 (개인정보 보호책임자)</h2>
 
-<table>
+<div class="table-wrap" tabindex="0" role="region" aria-label="개인정보 항목 표"><table>
   <tr>
-    <th>구분</th>
-    <th>내용</th>
+    <th scope="col">구분</th>
+    <th scope="col">내용</th>
   </tr>
   <tr>
     <td>서비스명</td>
@@ -239,7 +280,7 @@
     <td>이메일</td>
     <td><a href="mailto:studio@ddukddak.net">studio@ddukddak.net</a></td>
   </tr>
-</table>
+</table></div>
 
 <p>개인정보 관련 문의사항은 위 이메일(<a href="mailto:studio@ddukddak.net">studio@ddukddak.net</a>)로 연락해주시면 신속하게 답변드리겠습니다.</p>
 
@@ -247,11 +288,12 @@
 
 <p>이 개인정보처리방침은 법령, 정책 또는 서비스 변경사항을 반영하여 수정될 수 있습니다. 변경 시 앱 내 공지 또는 이메일을 통해 사전에 고지합니다.</p>
 
-<table>
+<div class="table-wrap" tabindex="0" role="region" aria-label="개인정보 항목 표"><table>
   <tr>
-    <th>시행일자</th>
-    <th>변경 내용</th>
+    <th scope="col">시행일자</th>
+    <th scope="col">변경 내용</th>
   </tr>
+  <tr><td>미확정(개정안)</td><td>플랫폼별 Apple 로그인·푸시, 문의·진단 처리 설명, 영어 안내 추가. 결제 조건·기존 일반 보관 기간 변경은 제외, iOS 토큰 처리 설명 추가</td></tr>
   <tr>
     <td>2026년 10월 26일</td>
     <td>암호화 백업본 보관 기간(7일 이내 자동 삭제) 및 데이터 백업 보관 위탁(GitHub, Inc.) 추가 (2026년 10월 19일 공지)</td>
@@ -264,12 +306,9 @@
     <td>2026년 3월 16일</td>
     <td>최초 시행</td>
   </tr>
-</table>
+</table></div>
 
-<div class="footer">
-  <p>뚝딱동화 (Ddukddak Tales)</p>
-  <p>시행일: 2026년 5월 20일</p>
-</div>
-
+</main>
+<footer class="footer">뚝딱동화 · Ddukddak Tales · <a href="mailto:studio@ddukddak.net">studio@ddukddak.net</a></footer>
 </body>
 </html>
